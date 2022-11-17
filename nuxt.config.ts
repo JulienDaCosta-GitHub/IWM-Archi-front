@@ -2,13 +2,13 @@
 export default defineNuxtConfig({
     app: {
         head: {
-            title: 'IWM-Archi-front',
+            title: 'IWM TDD Front',
         }
     },
     components: {
         dirs: [
             {
-                path: '~/src/nuxt/components/',
+                path: '~/src/adapters/primary/nuxt/components/',
                 global: true
             },
             '~/components'
@@ -18,6 +18,22 @@ export default defineNuxtConfig({
         strict: true
     },
     dir: {
-        pages: './src/nuxt/pages/'
-    }
+        // assets: 'custom-assets',
+        layouts: './src/adapters/primary/nuxt/layouts',
+        // middleware: 'custom-middleware',
+        pages: './src/adapters/primary/nuxt/pages/'
+        // static: 'custom-static',
+        // store: 'custom-store'
+    },
+    css: [
+        '~/assets/css/tailwind.css',
+        '~/assets/css/app.scss',
+    ],
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+        },
+    },
+    ssr: false
 })

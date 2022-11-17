@@ -25,15 +25,10 @@ export default defineNuxtConfig({
         // static: 'custom-static',
         // store: 'custom-store'
     },
-    css: [
-        '~/assets/css/tailwind.css',
-        '~/assets/css/app.scss',
-    ],
     postcss: {
         plugins: {
             tailwindcss: {},
             autoprefixer: {},
         },
     },
-    ssr: false
 })

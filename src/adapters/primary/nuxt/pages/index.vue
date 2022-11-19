@@ -1,18 +1,22 @@
-<script lang="ts" setup>
-   import { listClients } from '~~/src/coreLogic/usecases/client-listing/listClients';
-   import { listClientsVM } from '~~/src/coreLogic/usecases/client-listing/listClients';
-   import { ClientGateway } from '~~/src/coreLogic/gateways/ClientGateway';
-
-   const listClientsVM = computed(() => {
-      return listClientsVM().items
-   })
-</script>
-
 <template>
-   <div>
-      <h1>Hello World !</h1>
-      <div (v-else v-for="(client) in listClientsVM" :key="client.id" )>
-         {{client.name}}
-      </div>
-   </div>
+  <div>
+    <h1 style="display: flex; justify-content: center">Liste des clients</h1>
+
+    <div style="display: flex; justify-content: center">
+      <button @click="redirecToClients()">Voir les clients</button>
+      <button @click="redirecToDocuments()">Voir les documents</button>
+    </div>
+  </div>
 </template>
+
+<script lang="ts" setup>
+
+const redirecToClients = () => {
+  window.location.href = "/client/listClients"
+}
+
+const redirecToDocuments = () => {
+  window.location.href = "/document/listDocuments"
+}
+
+</script>

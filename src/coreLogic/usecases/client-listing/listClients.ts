@@ -1,6 +1,12 @@
-import { ClientGateway } from '../../gateways/ClientGateway'
+import { ClientGateway } from '~/src/coreLogic/gateways/ClientGateway'
+import { useClientStore } from '~/src/store/client'
 
 export const listClients = async (clientGateway: ClientGateway) => {
-   const clients = await clientGateway.listAll()
-   return clients
+  const clientStore = useClientStore()
+  clientStore.startListing()
+  
+  const clients = await clientGateway.listAll()
+  clientStore.list(clients)
+
+  // return await clientGateway.listAll()
 }

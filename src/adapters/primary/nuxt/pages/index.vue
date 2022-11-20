@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <h1 style="display: flex; justify-content: center">Liste des clients</h1>
 
     <div style="display: flex; justify-content: center">
@@ -18,5 +18,6 @@ const redirecToClients = () => {
 const redirecToDocuments = () => {
   window.location.href = "/document/listDocuments"
 }
+
 
 </script>

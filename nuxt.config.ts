@@ -17,6 +17,9 @@ export default defineNuxtConfig({
     typescript: {
         strict: true
     },
+    modules: [
+        '@pinia/nuxt',
+    ],
     dir: {
         // assets: 'custom-assets',
         layouts: './src/adapters/primary/nuxt/layouts',

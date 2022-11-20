@@ -1,6 +1,12 @@
 import { ClientGateway } from '~/src/coreLogic/gateways/ClientGateway'
 import { Client } from '~/src/coreLogic/usecases/client-listing/client'
 
+export class ClientDoesNotExistsError extends Error {
+  constructor(id: string) {
+    super(`Client ${id} does not exists`)
+  }
+}
+
 export class InMemoryClientGateway implements ClientGateway {
   protected clients: Array<Client> = []
 
@@ -9,5 +15,13 @@ export class InMemoryClientGateway implements ClientGateway {
   }
   feedWith(...clients: Array<Client>) {
     this.clients = clients
+  }
+
+  getById(id: string): Promise<Client> {
+    const res = this.clients.find((p) => p.id === id)
+    if (!res) {
+      throw new ClientDoesNotExistsError(id)
+    }
+    return res
   }
 }

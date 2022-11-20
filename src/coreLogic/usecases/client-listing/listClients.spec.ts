@@ -11,7 +11,7 @@ describe('List clients view model', () => {
     const client1: any = { id: 'abc123', name: 'Edward Newton' }
     const client2: any = { id: 'def456', name: 'Martin Matin' }
     const clientStore = useClientStore()
-    clientStore.list([client1, client1])
+    clientStore.list([client1, client2])
     // When
     const clientsVM = listClientsVM()
     // Then

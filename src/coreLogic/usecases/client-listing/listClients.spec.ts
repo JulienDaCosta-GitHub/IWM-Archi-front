@@ -1,32 +1,43 @@
-import { useClientStore } from '~/src/store/client'
 import { createPinia, setActivePinia } from 'pinia'
-import { listClientsVM, ClientsVM } from '~/src/adapters/primary/view-models/client/list-clients/listClientsViewModel'
+import { useClientStore } from '~/src/store/client'
+import { listClients} from "~/src/coreLogic/usecases/client-listing/listClients";
+import { InMemoryClientGateway} from "~/src/adapters/secondary/InMemoryClientGateway";
+import { Client } from '~/src/coreLogic/usecases/client-listing/client';
 
-describe('List clients view model', () => {
+describe('List clients', () => {
+  let clientStore: any
+  let clientGateway: InMemoryClientGateway
   beforeEach(() => {
     setActivePinia(createPinia())
+    clientStore = useClientStore()
+    clientGateway = new InMemoryClientGateway()
   })
-  it('should format price', () => {
-    // Given
-    const client1: any = { id: 'abc123', name: 'Edward Newton' }
-    const client2: any = { id: 'def456', name: 'Martin Matin' }
-    const clientStore = useClientStore()
-    clientStore.list([client1, client2])
-    // When
-    const clientsVM = listClientsVM()
-    // Then
-    const expectedClients: ClientsVM = {
-      items: [
-        {
-          id: 'abc123',
-          name: 'Edward Newton',
-        },
-        {
-          id: 'def456',
-          name: 'Martin Matin',
-        }
-      ]
-    }
-    expect(clientsVM).toEqual(expectedClients)
+  describe('There is no available clients', () => {
+    it('should list nothing', async () => {
+      await listClients(clientGateway)
+      expect(clientStore.all).toEqual([])
+    })
+  })
+  describe('There is available clients', () => {
+    it('should list all clients', async () => {
+      const client1: any = { id: 'abc123', name: 'Edward Newton' }
+      const client2: any = { id: 'def456', name: 'Martin Matin' }
+      clientGateway.feedWith(client1, client2)
+      await listClients(clientGateway)
+      expect(clientStore.all).toEqual([client1, client2])
+    })
+  })
+  describe('Loading', () => {
+    it('should be aware during loading', async () => {
+      const unsubscribe = clientStore.$subscribe((mutation: any, state: any) => {
+        expect(state.isLoading).toBeTruthy()
+        unsubscribe()
+      })
+      await listClients(clientGateway)
+    })
+    it('should finish loading when done', async () => {
+      await listClients(clientGateway)
+      expect(clientStore.isLoading).toBeFalsy()
+    })
   })
 })

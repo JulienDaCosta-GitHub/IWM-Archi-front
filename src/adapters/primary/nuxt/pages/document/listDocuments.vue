@@ -6,8 +6,8 @@
       <div>
         <p>Nom du document : Test Document</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un Document</button>
-          <button @click="redirectoToSee()">Voir un document</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un Document</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un document</button>
           <button @click="deleteDoc()">Supprimer un document</button>
         </div>
       </div>
@@ -15,8 +15,8 @@
       <div>
         <p>Nom du document : Test Document</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un Document</button>
-          <button @click="redirectoToSee()">Voir un document</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un Document</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un document</button>
           <button @click="deleteDoc()">Supprimer un document</button>
         </div>
       </div>
@@ -24,8 +24,8 @@
       <div>
         <p>Nom du document : Test Document</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un Document</button>
-          <button @click="redirectoToSee()">Voir un document</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un Document</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un document</button>
           <button @click="deleteDoc()">Supprimer un document</button>
         </div>
       </div>

@@ -3,7 +3,7 @@
     <h1 style="display: flex; justify-content: center">Liste des clients</h1>
 
     <div style="display: flex; justify-content: center">
-      <button @click="redirecToClients()">Voir les clients</button>
+      <button style="margin-right: 40px" @click="redirecToClients()">Voir les clients</button>
       <button @click="redirecToDocuments()">Voir les documents</button>
     </div>
   </div>

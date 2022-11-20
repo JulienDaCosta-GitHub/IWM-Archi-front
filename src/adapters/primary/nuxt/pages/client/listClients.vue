@@ -6,8 +6,8 @@
       <div>
         <p>Nom du client : Test Client</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un client</button>
-          <button @click="redirectoToSee()">Voir un client</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un client</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un client</button>
           <button @click="deleteClient()">Supprimer un client</button>
         </div>
       </div>
@@ -15,8 +15,8 @@
       <div>
         <p>Nom du client : Test Client</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un client</button>
-          <button @click="redirectoToSee()">Voir un client</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un client</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un client</button>
           <button @click="deleteClient()">Supprimer un client</button>
         </div>
       </div>
@@ -24,8 +24,8 @@
       <div>
         <p>Nom du client : Test Client</p>
         <div>
-          <button @click="redirectoToAdd()">Ajouter un client</button>
-          <button @click="redirectoToSee()">Voir un client</button>
+          <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un client</button>
+          <button style="margin-right: 40px" @click="redirectoToSee()">Voir un client</button>
           <button @click="deleteClient()">Supprimer un client</button>
         </div>
       </div>

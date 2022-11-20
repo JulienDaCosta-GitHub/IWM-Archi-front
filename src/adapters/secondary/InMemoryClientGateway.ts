@@ -17,7 +17,7 @@ export class InMemoryClientGateway implements ClientGateway {
     this.clients = clients
   }
 
-  getById(id: string): Promise<Client> {
+  async getById(id: string): Promise<Client> {
     const res = this.clients.find((c) => c.id === id)
     if (!res) {
       throw new ClientDoesNotExistsError(id)

@@ -37,16 +37,8 @@
     return listClientsVM().items
   })
 
-  const redirectoToAdd = () => {
-    window.location.href = "/client/addClient"
-  }
-
   const deleteClient = () => {
     console.log("deleted !")
-  }
-
-  const redirectoToSee = (id) => {
-    window.location.href = "/clients/" + id
   }
 
   const isLoading = computed(() => {

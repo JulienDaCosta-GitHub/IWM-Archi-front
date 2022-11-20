@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 
 const redirecToClients = () => {
-  window.location.href = "/client/listClients"
+  window.location.href = "/clients"
 }
 
 const redirecToDocuments = () => {

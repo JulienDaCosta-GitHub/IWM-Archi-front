@@ -1,14 +1,18 @@
 <template>
   <div>
     <h1 style="display: flex; justify-content: center">Liste des clients</h1>
-    <button style="margin-right: 40px" @click="redirectoToAdd()">Ajouter un client</button>
+    <NuxtLink :to="'/clients/new'"> 
+      Ajouter un client
+    </NuxtLink>
     <div v-if="isLoading"> Loading ...</div>
 
     <div>
       <div v-for="(client) in clientsVM" :key="client.id">
         <p>Nom du client : {{ client.name }}</p>
         <div>
-          <button style="margin-right: 40px" @click="redirectoToSee(client.id)">Voir le client</button>
+          <NuxtLink :to="'/clients/'+client.id">
+            voir le client
+          </NuxtLink>
           <button @click="deleteClient()">Supprimer un client</button>
         </div>
       </div>
@@ -42,7 +46,7 @@
   }
 
   const redirectoToSee = (id) => {
-    window.location.href = "/client/profileClient/" + id
+    window.location.href = "/clients/" + id
   }
 
   const isLoading = computed(() => {
